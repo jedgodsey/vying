@@ -1,0 +1,6 @@
+#all pasted over from 'diy'
+node_modules
+build
+.dockerignore
+Dockerfile
+Dockerfile.prod
