@@ -1,7 +1,7 @@
-FROM python:3.9-alpine
+FROM python:3.8-slim
 COPY . .
-RUN ls
+
 RUN pip install -r requirements.txt
 
 
-CMD exec python3 manage.py runserver
+CMD exec gunicorn vying_app.wsgi:application

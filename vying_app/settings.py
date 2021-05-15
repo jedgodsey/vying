@@ -11,10 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
-# import environ
-
-# env = environ.Env()
-# environ.Env.read_env() # what's this part for?
 
 import os
 from dotenv import load_dotenv, find_dotenv
@@ -23,18 +19,46 @@ load_dotenv(find_dotenv())
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+#####################################################
+
+import io
+
+import environ
+
+# BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+env_file = os.path.join(BASE_DIR, ".env")
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+plumb = environ.Env()
 
-# SECURITY WARNING: keep the secret key used in production secret!
+if os.path.isfile(env_file):
+    plumb.read_env(env_file)
+else:
+    # [START cloudrun_django_secretconfig]
+    import google.auth
+    from google.cloud import secretmanager
+
+    _, project = google.auth.default()
+
+    if project:
+        client = secretmanager.SecretManagerServiceClient()
+
+        SETTINGS_NAME = os.environ.get("SETTINGS_NAME", "django_settings")
+        name = f"projects/{project}/secrets/{SETTINGS_NAME}/versions/latest"
+        payload = client.access_secret_version(name=name).payload.data.decode(
+            "UTF-8"
+        )
+    plumb.read_env(io.StringIO(payload))
+    # [END cloudrun_django_secretconfig]
+
+
+#####################################################
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
