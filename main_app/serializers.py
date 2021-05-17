@@ -3,12 +3,15 @@ from .models import Profile, Event, Performance
 
 class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Profilefields = '__all__'
+        model = Profile
+        fields = '__all__'
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Eventfields = '__all__'
+        model = Event
+        fields = '__all__'
 
 class PerformanceSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Performancefields = '__all__'
+        model = Performance
+        fields = '__all__'
