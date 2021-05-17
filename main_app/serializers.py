@@ -1,9 +1,9 @@
 from rest_framework import serializers
-from .models import User, Event, Performance
+from .models import Profile, Event, Performance
 
-class UserSerializer(serializers.ModelSerializer):
+class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Userfields = '__all__'
+        model = Profilefields = '__all__'
 
 class EventSerializer(serializers.ModelSerializer):
     class Meta:

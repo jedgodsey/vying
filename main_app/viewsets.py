@@ -1,13 +1,13 @@
-from .models import User, Event, Performance
+from .models import Profile, Event, Performance
 from rest_framework import viewsets, permissions
-from .serializers import UserSerializer, EventSerializer, PerformanceSerializer
+from .serializers import ProfileSerializer, EventSerializer, PerformanceSerializer
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all()
     permission_classes = [
         permissions.AllowAny
     ]
-    serializer_class = UserSerializer
+    serializer_class = ProfileSerializer
 
 class EventViewSet(viewsets.ModelViewSet):
     queryset = Event.objects.all()
