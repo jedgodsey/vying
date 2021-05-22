@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'vying_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
-        'NAME': 'vying-db',
+        'NAME': 'vying-database',
         'CLIENT': {
             'host': os.getenv('MONGO_CONNECT')
         },
