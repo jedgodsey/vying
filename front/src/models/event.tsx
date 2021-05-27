@@ -20,13 +20,14 @@ class EventModel {
     }
 
     static create(newEvent: object) {
+        console.log('here')
         return fetch(url, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newEvent),
-            credentials: 'include'
+            // credentials: 'include'
         })
-            .then(res => window.location.href = '/dashboard') //return new object instead?
+            // .then(res => window.location.href = '/dashboard') //return new object instead?
     }
 
     static update(updatedEvent: any) {
