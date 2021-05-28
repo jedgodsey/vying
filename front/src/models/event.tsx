@@ -1,4 +1,4 @@
-let url: string = 'http://localhost:8000/events/';
+let url: string = 'http://localhost:8000/events';
 
 class EventModel {
     static all() {

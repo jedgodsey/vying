@@ -50,7 +50,7 @@ const AddEvent = () => {
                 <option value='Low'>Low</option>
                 <option value='High'>High</option>
             </select>
-            <button onClick={() => submit()}>Submit</button>\
+            <button onClick={() => submit()}>Submit</button>
 
         </>
     )

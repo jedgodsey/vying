@@ -19,7 +19,7 @@ const ListEvents: React.FC = () => {
             <ul>
             {events && events.map(item => {
                 return(
-                    <li>{item.title}  {item.description}</li>
+                    <li><a href={`/events/${item.id}`}>{item.title}</a>  {item.description}</li>
                 )
             })}
             </ul>

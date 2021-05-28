@@ -16,11 +16,11 @@ function App() {
     <Link to = {'/add-event'}>Add Event</Link>
     <Link to = {'/dashboard'}>Dashboard</Link>
       <Switch>
-        <Route path='/events/:event-id' component={ShowEvent} />
+        <Route path='/events/:eventid' component={ShowEvent} />
         <Route path='/events' component={ListEvents} />
         <Route path='/add-event' component={AddEvent} />
         <Route path='/dashboard' component={Dashboard} />
-        <Route path='/profiles/:profile-id' component={ShowProfile} />
+        <Route path='/profiles/:profileid' component={ShowProfile} />
         <Route path='/' component={Home} />
       </Switch>
     </>

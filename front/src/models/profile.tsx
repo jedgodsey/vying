@@ -1,4 +1,4 @@
-let url: string = 'http://localhost:8000/profiles/';
+let url: string = 'http://localhost:8000/profiles';
 
 class ProfileModel {
     static all() {

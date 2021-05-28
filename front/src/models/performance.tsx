@@ -1,4 +1,4 @@
-let url: string = 'http://localhost:8000/performances/';
+let url: string = 'http://localhost:8000/performances';
 
 class PerformanceModel {
     static all() {
